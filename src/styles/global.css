@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/* primary d #5ce1e6 - l #2bbec3 */
+
+:root {
+  --primary-color: #2bbec3;
+  --color-text-base: #161616;
+  --background-color: #f1f1f1;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #5ce1e6;
+    --color-text-base: #eeebeb;
+    --background-color: #0e0e0e;
+  }
+}
+
+::selection {
+  background-color: rgba(67, 153, 156, 0.466);
+}
+
+body {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: var(--color-text-base);
+  user-select: none;
+}
+
+.font-primary {
+  color: var(--primary-color);
+}
+
+button,
+.btn {
+  padding: 0.5rem 1.3rem;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  background-color: #0e0e0e;
+  filter: drop-shadow(0 0 0.9rem #181818);
+  transition: all 200ms ease-in-out;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:hover,
+.btn:hover {
+  filter: drop-shadow(0 0 0.9rem rgb(83, 83, 83));
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: #0e0e0e;
+}
+
+.link {
+  color: #bbb7b7;
+  transition: all 200ms ease-in-out;
+  border-top: 0.2rem solid transparent;
+  border-bottom: 0.2rem solid transparent;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link:hover,
+.link-active {
+  color: var(--color-text-base);
+  filter: drop-shadow(0 0 0.9rem rgb(83, 83, 83));
+  border-bottom: 0.2rem solid #aaa;
+}
+
+.bg-clouds {
+  background-image: url("/endless-clouds.svg");
+}
+
+.bg-gradient {
+  background: radial-gradient(
+    circle at bottom,
+    rgb(37, 37, 37) 0%,
+    rgba(15, 15, 15, 0) 50%
+  );
+  background-size: 200% 100%;
+  background-position: center;
+}

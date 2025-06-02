@@ -1,0 +1,45 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<script>
+  const anchor = document.querySelectorAll("[link-section-button]");
+
+  anchor.forEach((a) => {
+    a.addEventListener("click", () => {
+      document
+        .querySelector(`#${a.getAttribute("data-section")}`)
+        ?.scrollIntoView({ behavior: "smooth" });
+    });
+  });
+</script>
+
+<header class="fixed top-0 left-0 w-full z-20">
+  <nav class="w-full p-2 flex justify-between items-center">
+    <div>
+      <img
+        src="/lg-logo-transparent.png"
+        alt="logo luis gonzalez"
+        class="w-10"
+      />
+    </div>
+    <div>
+      <ul class="flex justify-center items-center gap-0.5">
+        <li>
+          <a link-section-button data-section="home" class="link"
+            ><Icon name="tabler--home" class="text-2xl" /></a
+          >
+        </li>
+        <li>
+          <a link-section-button data-section="about" class="link">About</a>
+        </li>
+        <li>
+          <a link-section-button data-section="skills" class="link">Skills</a>
+        </li>
+        <li>
+          <a link-section-button data-section="works" class="link">Works</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
