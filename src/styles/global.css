@@ -6,6 +6,7 @@
   --primary-color: #2bbec3;
   --color-text-base: #161616;
   --background-color: #f1f1f1;
+  --color-jade: #17866a;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,6 +21,12 @@
   background-color: rgba(67, 153, 156, 0.466);
 }
 
+html,
+body {
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   font-optical-sizing: auto;
@@ -30,8 +37,34 @@ body {
   user-select: none;
 }
 
-.font-primary {
+section {
+  scroll-snap-align: start;
+}
+
+.text-primary {
   color: var(--primary-color);
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #a9a7a7 var(--background-color);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 16px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #a9a7a7;
+  border-radius: 20px;
+  border: 1px none #ffffff;
 }
 
 button,
@@ -39,8 +72,7 @@ button,
   padding: 0.5rem 1.3rem;
   border-radius: 2rem;
   font-size: 0.9rem;
-  background-color: #0e0e0e;
-  filter: drop-shadow(0 0 0.9rem #181818);
+  background-color: #161616;
   transition: all 200ms ease-in-out;
   font-weight: bold;
   cursor: pointer;
@@ -51,7 +83,7 @@ button,
 
 button:hover,
 .btn:hover {
-  filter: drop-shadow(0 0 0.9rem rgb(83, 83, 83));
+  filter: drop-shadow(0 0 0.4rem rgb(0, 0, 0));
 }
 
 .btn-primary {
@@ -59,35 +91,124 @@ button:hover,
   color: #0e0e0e;
 }
 
+.btn-primary:hover {
+  filter: drop-shadow(0 0 0.4rem var(--primary-color));
+}
+
 .link {
-  color: #bbb7b7;
+  color: var(--color-text-base);
   transition: all 200ms ease-in-out;
   border-top: 0.2rem solid transparent;
   border-bottom: 0.2rem solid transparent;
   padding: 0.3rem 0.8rem;
   cursor: pointer;
   display: inline-flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
+  gap: 0.5rem;
+  text-wrap: nowrap;
+}
+
+.link-select-text {
+  user-select: text;
 }
 
 .link:hover,
 .link-active {
-  color: var(--color-text-base);
   filter: drop-shadow(0 0 0.9rem rgb(83, 83, 83));
-  border-bottom: 0.2rem solid #aaa;
+  border-bottom: 0.2rem solid var(--color-text-base);
 }
 
 .bg-clouds {
+  position: relative;
+  z-index: 0;
+}
+
+.bg-clouds::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background-image: url("/endless-clouds.svg");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-size: 3rem;
+  filter: opacity(0.4);
+  z-index: -1;
 }
 
 .bg-gradient {
-  background: radial-gradient(
-    circle at bottom,
-    rgb(37, 37, 37) 0%,
-    rgba(15, 15, 15, 0) 50%
+  background: #20a080;
+  background: linear-gradient(
+    0deg,
+    rgba(32, 160, 128, 0.219) 0%,
+    rgba(32, 160, 128, 0.5) 100%
   );
   background-size: 200% 100%;
   background-position: center;
+}
+
+.bg-gradient-top {
+  background: #20a080;
+  background: linear-gradient(
+    180deg,
+    rgba(32, 160, 128, 0.219) 0%,
+    rgba(32, 160, 128, 0.5) 100%
+  );
+  background-size: 200% 100%;
+  background-position: center;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip:hover::after {
+  content: attr(data-tooltip);
+  padding: 10px;
+  font-size: 0.8rem;
+  background-color: var(--primary-color);
+  color: #0c0c0c;
+  font-weight: bold;
+  position: absolute;
+  border-radius: 0.8rem;
+  filter: drop-shadow(0 0 0.9rem rgb(32, 32, 32));
+  top: -120%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  opacity: 0;
+  animation: fadeIn forwards 200ms;
+  z-index: 10;
+}
+
+.tooltip:hover::before {
+  content: "";
+  padding: 10px;
+  background-color: var(--primary-color);
+  filter: drop-shadow(0 0 0.9rem rgb(32, 32, 32));
+  position: absolute;
+  clip-path: polygon(100% 0, 0 0, 50% 100%);
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  opacity: 0;
+  animation: fadeIn forwards 700ms;
+  z-index: 9;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

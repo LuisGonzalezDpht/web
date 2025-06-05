@@ -1,27 +1,198 @@
-<section id="about" class="w-full h-screen relative">
-  <div class="w-full h-full grid md:grid-cols-2 grid-cols-1">
-    <div class="w-full h-full flex justify-center">
-      <div
-        class="max-w-sm w-full max-h-[90%] bg-clouds border border-[#5ce1e6] bg-neutral-900 rounded-b-3xl drop-shadow-xl drop-shadow-neutral-900"
-      >
-        <div class="w-full py-5 flex flex-col justify-center items-center">
-          <h1 class="text-3xl font-semibold">About Me</h1>
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="about" class="w-full md:h-screen h-full relative">
+  <div class="w-full h-full">
+    <div class="w-full h-full bg-gradient-top">
+      <div class="w-full h-full bg-clouds flex flex-col items-center">
+        <div class="w-full py-8 flex justify-center items-end"></div>
+        <div class="max-w-6xl h-full parent p-2">
+          <div
+            class="div1 flex flex-col gap-y-[1.5rem] justify-center items-center drop-shadow-md bg-jade"
+          >
+            <div class="w-24 h-24 overflow-hidden rounded-full">
+              <img
+                src="/foto_mia.jpg"
+                alt="foto mia"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <h1 class="text-primary text-2xl font-semibold">About Me</h1>
+            <p>
+              Desarrollador <strong>Fullstack</strong> con foco en <strong
+                >Frontend</strong
+              > con flexibilidad al cambio.
+            </p>
+            <p>
+              Me gustan los nuevos proyectos y encontrar soluciones. Arreglar
+              bugs me resulta muy satisfactorio, y ver mejoras tanto en el
+              código como en la interfaz es parte de lo que más disfruto. Valoro
+              un código limpio y mantenible.
+            </p>
+          </div>
+          <div
+            class="div2 flex flex-col justify-center items-center drop-shadow-md gap-y-[1.5rem]"
+          >
+            <h1 class="text-2xl font-semibold">Stacks Usados</h1>
+            <div
+              class="text-[2.5rem] flex gap-3 flex-wrap w-full justify-center"
+            >
+              <div class="tooltip" data-tooltip="Vue.js">
+                <Icon name="vue" />
+              </div>
+
+              <div class="tooltip" data-tooltip="Nuxt">
+                <Icon name="nuxt-icon" />
+              </div>
+              <div class="tooltip" data-tooltip="Tailwindcss">
+                <Icon name="tailwindcss-icon" />
+              </div>
+              <div class="tooltip" data-tooltip="CSS3">
+                <Icon name="css-3" />
+              </div>
+              <div class="tooltip" data-tooltip="HTML5">
+                <Icon name="html-5" />
+              </div>
+              <div class="tooltip" data-tooltip="Nest.Js">
+                <Icon name="nestjs" />
+              </div>
+              <div class="tooltip" data-tooltip="Express">
+                <Icon class="invert" name="express" />
+              </div>
+              <div class="tooltip" data-tooltip="Node.Js">
+                <Icon name="nodejs-icon" />
+              </div>
+              <div class="tooltip" data-tooltip="PostgreSQL">
+                <Icon name="postgresql" />
+              </div>
+              <div class="tooltip" data-tooltip="MongoDB">
+                <Icon name="mongodb-icon" />
+              </div>
+              <div class="tooltip" data-tooltip="Websocket">
+                <Icon class="invert" name="websocket" />
+              </div>
+              <div class="tooltip" data-tooltip="Nginx">
+                <Icon name="nginx" />
+              </div>
+              <div class="tooltip" data-tooltip="Ubuntu">
+                <Icon name="ubuntu" />
+              </div>
+              <div class="tooltip" data-tooltip="Astro">
+                <Icon name="astro-icon" />
+              </div>
+            </div>
+          </div>
+          <div
+            class="div3 flex flex-col gap-[1.5rem] justify-center items-center drop-shadow-md select-text"
+          >
+            <a
+              class="link link-select-text w-full"
+              href="https://www.linkedin.com/in/luis-gonzalez-dpht/"
+              target="_blank"
+            >
+              <Icon name="linkedin" class="invert text-2xl" /> luis-gonzalez-dpht
+            </a>
+            <a
+              class="link link-select-text w-full jus"
+              href="https://github.com/LuisGonzalezDpht"
+              target="_blank"
+            >
+              <Icon name="github" class="text-2xl" /> LuisGonzalezDpht
+            </a>
+            <a
+              class="link link-select-text w-full"
+              href="https://wa.me/56988490566"
+              target="_blank"
+            >
+              <Icon name="whatsapp-svgrepo-com" class="text-2xl invert" /> +569-88490566
+            </a>
+          </div>
+          <div
+            class="div6 flex justify-center items-center drop-shadow-md text-center"
+          >
+            <h1 class="text-2xl sm:text-3xl leading-snug">
+              <strong class="text-5xl text-primary font-bold">3</strong>
+              años como freelance <br />
+              Fullstack con enfoque en <strong class="text-primary"
+                >Frontend</strong
+              >
+            </h1>
+          </div>
         </div>
       </div>
     </div>
-    <div></div>
-  </div>
-  <div class="absolute top-0 left-0 w-full z-10">
-    <picture class="w-full">
-      <source
-        srcset="/split-end-dark.svg"
-        media="(prefers-color-scheme: dark)"
-      />
-      <img
-        class="w-full h-48"
-        src="/split-end-light.svg"
-        alt="split from https://www.shapedivider.app/"
-      />
-    </picture>
   </div>
 </section>
+
+<style>
+  .parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 8px;
+    width: 100%;
+  }
+
+  p {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .div1 {
+    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    grid-column: span 2 / span 2;
+    grid-row: span 5 / span 5;
+  }
+
+  .div2 {
+    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    grid-column: span 3 / span 3;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+  }
+
+  .div3 {
+    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    grid-column-start: 3;
+    grid-row-start: 3;
+    grid-row: span 3 / span 3;
+  }
+
+  .div6 {
+    padding: 1rem;
+    background-color: rgb(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 2rem;
+    grid-column: span 2 / span 2;
+    grid-row: span 3 / span 3;
+    grid-column-start: 4;
+    grid-row-start: 3;
+  }
+
+  /* 🔽 Mobile layout (menos de 768px) */
+  @media (max-width: 768px) {
+    .parent {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .div1,
+    .div2,
+    .div3,
+    .div6 {
+      width: 100%;
+    }
+  }
+</style>
