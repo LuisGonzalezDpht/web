@@ -7,7 +7,7 @@
   --color-text-base: #161616;
   --background-color: #f1f1f1;
   --color-jade-1: rgb(32, 160, 128);
-  --color-jade-2: rgb(20, 103, 82);
+  --color-jade-2: rgb(12, 74, 58);
 }
 
 @media (prefers-color-scheme: dark) {
